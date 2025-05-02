@@ -1,0 +1,19 @@
+---
+- name: Deploy app container
+  hosts: webservers
+  tasks:
+    - name: Install Docker
+      package:
+        name: docker
+        state: present
+
+    - name: Copy Docker image tar to remote server
+      copy:
+        src: /tmp/myapp.tar
+        dest: /tmp/myapp.tar
+
+    - name: Load Docker image from tar
+      shell: docker load -i /tmp/myapp.tar
+
+    - name: Run container
+      shell: docker run -d -p 80:5000 myapp:latest
