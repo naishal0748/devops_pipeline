@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''
            docker build -t flaskapp:latest .
-           docker save flaskapp:latest -o /tmp/myapp.tar
+           docker save flaskapp:latest -o /var/tmp/myapp.tar
         '''
       }
     }
