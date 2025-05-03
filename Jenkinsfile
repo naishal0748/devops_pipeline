@@ -8,6 +8,11 @@ pipeline {
            docker save flaskapp:latest -o /var/tmp/myapp.tar
         '''
       }
+    stage('Deploy') {
+      steps {
+        sh 'ansible-playbook -i ansible/inventory ansible/playbook.yml'
+      }
+    }
     }
 }
 }
