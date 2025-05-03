@@ -9,11 +9,11 @@
 
     - name: Copy Docker image tar to remote server
       copy:
-        src: /tmp/myapp.tar
-        dest: /tmp/myapp.tar
+        src: /var/tmp/myapp.tar
+        dest: /var/tmp/myapp.tar
 
     - name: Load Docker image from tar
-      shell: docker load -i /tmp/myapp.tar
+      shell: docker load -i /var/tmp/myapp.tar
 
     - name: Run container
-      shell: docker run -d -p 80:5000 myapp:latest
+      shell: docker run -d -p 80:5000 flaskapp:latest
