@@ -8,6 +8,11 @@
         name: docker
         state: present
 
+    - name: Make sure docker service is running
+      service:
+        name: docker
+        state: started
+        
     - name: Copy Docker image tar to remote server
       copy:
         src: /var/tmp/myapp.tar
