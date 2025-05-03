@@ -1,6 +1,7 @@
 ---
 - name: Deploy app container
   hosts: webservers
+  gather_facts: false
   tasks:
     - name: Install Docker
       package:
