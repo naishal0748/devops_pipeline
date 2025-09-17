@@ -9,7 +9,7 @@ jobs:
       -  name: checkout_repo
          uses: actions/checkout@v2
       -  name: upload_artifact
-         uses: actions/upload-artifact@v1.0.0
+         uses: actions/upload-artifact@v4
          with:
           name: "${{ env.artifact_name }}"
           path: "./${{ env.artifact_name }}"
