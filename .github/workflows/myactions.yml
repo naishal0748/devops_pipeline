@@ -1,14 +1,17 @@
 name: First Actions demo
 on: push
 env:
-  artifact_name: my_artifact
+  artifact_name: "my_artifact"
 jobs:
-  checout_repo:
-    uses: actions/checkout@v2
-  upload_artifact:
-    uses: actions/upload-artifact
-    with:
-      name: ${{ env.artifact_name }}
-      path: ./${{ env.artifact_name }}
-      
+  artifact_job:
+    runs-on: ubuntu-latest
+    steps:
+      -  name: checkout_repo
+         uses: actions/checkout@v2
+      -  name: upload_artifact
+         uses: actions/upload-artifact
+         with:
+          name: "${{ env.artifact_name }}"
+          path: "./${{ env.artifact_name }}"
+        
   
